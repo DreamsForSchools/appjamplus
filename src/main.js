@@ -1,7 +1,7 @@
 import Vue from "vue";
 import AV from "leancloud-storage";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faEnvelopeSquare } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faEnvelopeSquare } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import App from "./App.vue";
@@ -11,7 +11,7 @@ AV.init({
   appId: "kTRNKbNjCEvilqo4mbqlxt1A-MdYXbMMI",
   appKey: "VJTywpA0iLUwmNateg1nvd4E"
 });
-library.add(faEnvelopeSquare, faLinkedin);
+library.add(faBars, faEnvelopeSquare, faLinkedin);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.config.productionTip = false;
 new Vue({

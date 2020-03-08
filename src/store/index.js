@@ -6,9 +6,6 @@ export default new Vuex.Store({
     navOn: false
   },
   mutations: {
-    openNav(state) {
-      state.navOn = true;
-    },
     closeNav(state) {
       state.navOn = false;
     },

@@ -7,7 +7,12 @@
             <img src="@/assets/logo.svg" title="AppJam+" alt="AppJam+" />
           </router-link>
         </div>
-        <div id="pages">
+        <div id="menu">
+          <span @click.stop="$store.commit('toggleNav')">
+            <font-awesome-icon :icon="['fas', 'bars']" />
+          </span>
+        </div>
+        <div id="pages" :class="$store.state.navOn ? 'on' : ''">
           <router-link to="/who"><span>Who We Are</span></router-link>
           <router-link to="/why"><span>Why STEM?</span></router-link>
           <router-link to="/apps"><span>Student Apps</span></router-link>
@@ -57,7 +62,21 @@
 
 <script>
 export default {
-  name: "App"
+  name: "App",
+  methods: {
+    closeNav() {
+      const vm = this;
+      vm.$store.commit("closeNav");
+    }
+  },
+  created() {
+    const vm = this;
+    document.addEventListener("click", vm.closeNav);
+  },
+  beforeDestroy() {
+    const vm = this;
+    document.removeEventListener("click", vm.closeNav);
+  }
 };
 </script>
 
@@ -106,17 +125,24 @@ nav #logo img {
   padding: 16px 0;
   height: 96px;
 }
+nav #menu,
 nav #pages {
   float: right;
 }
+nav #menu {
+  display: none;
+}
+nav #menu a,
 nav #pages a {
   margin-left: 32px;
 }
-nav #pages a span {
+nav #menu span,
+nav #pages span {
   display: inline-block;
   line-height: 96px;
   transition: all 0.2s ease;
 }
+nav #menu a:hover span,
 nav #pages a:hover span {
   color: #1a1a1a;
 }
@@ -178,6 +204,30 @@ section {
 }
 #signup input:focus {
   background-color: rgba(255, 255, 255, 0.2);
+}
+@media (max-width: 840px) {
+  nav #menu {
+    display: unset;
+  }
+  nav #pages {
+    display: none;
+    float: left;
+    position: absolute;
+    top: 96px;
+    right: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 1;
+  }
+  nav #pages.on {
+    display: unset;
+    padding: 0 0 32px 0;
+  }
+  nav #pages span {
+    display: block;
+    line-height: unset;
+    padding: 0px 32px;
+  }
 }
 @media (max-width: 640px) {
   .footer-block {
