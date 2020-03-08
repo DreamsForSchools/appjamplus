@@ -70,19 +70,20 @@ export default {
 body {
   margin: 0;
   font-family: "Source Sans Pro", sans-serif;
-  color: #1a1a1a;
+  color: #999999;
 }
 h2 {
   margin: 8pt 0;
   font-size: 24pt;
+  color: #1a1a1a;
 }
 h3 {
   margin: 8pt 0;
   font-size: 18pt;
+  color: #1a1a1a;
 }
 p {
   margin: 8pt 0;
-  opacity: 40%;
 }
 a {
   text-decoration: none;
@@ -114,11 +115,10 @@ nav #pages a {
 nav #pages a span {
   display: inline-block;
   line-height: 96px;
-  opacity: 60%;
   transition: all 0.2s ease;
 }
 nav #pages a:hover span {
-  opacity: 1;
+  color: #1a1a1a;
 }
 section {
   position: relative;
@@ -143,15 +143,17 @@ section {
 .footer-block:nth-of-type(3n) {
   margin: 0 0 48px 0;
 }
-.footer-block h3,
-.footer-block p {
+.footer-block h3 {
   color: #fff;
+}
+.footer-block p {
+  color: #808080;
 }
 .footer-block a p {
   transition: all 0.2s ease;
 }
 .footer-block a:hover p {
-  opacity: 1;
+  color: #fff;
 }
 #signup input {
   position: relative;
